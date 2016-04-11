@@ -1,0 +1,33 @@
+{
+"manifest_version": 2,
+  "name": "sss ",
+  "version": "1",
+  "description": "Manipulate the DOM when the page is done loading",
+  "background_page": "background.html",
+  "browser_action": {
+    "name": "Manipulate DOM",
+    "icons": ["icon.png"],
+    "default_icon": "icon.png",
+		  "default_popup": "popup.html"
+  },
+  "permissions": [
+        "tabs",
+        "http://*/*",
+        "https://*/*",
+        "notifications",
+        "contextMenus"
+    ],
+	
+
+"background": {
+        "scripts": ["bg.js"],
+        "persistent": false
+    },
+ "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["jquery.min.js", "background.js"]
+    }]
+}
